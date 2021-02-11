@@ -113,17 +113,34 @@ else
   fi
 fi
 
-alias l='ls -1A'         # Lists in one column, hidden files.
-alias ll='ls -lh'        # Lists human readable sizes.
-alias lr='ll -R'         # Lists human readable sizes, recursively.
-alias la='ll -A'         # Lists human readable sizes, hidden files.
-alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager.
-alias lx='ll -XB'        # Lists sorted by extension (GNU only).
-alias lk='ll -Sr'        # Lists sorted by size, largest last.
-alias lt='ll -tr'        # Lists sorted by date, most recent last.
-alias lc='lt -c'         # Lists sorted by date, most recent last, shows change time.
-alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
-alias sl='ls'            # I often screw this up.
+if type exa > /dev/null; then
+  alias l='exa -1a'               # Lists in one column, hidden files.
+  alias ll='exa -lbhHgm'          # long list
+  alias lr='ll -R'                # Lists human readable sizes, recursively.
+  alias la='ll -a'                # Lists human readable sizes, hidden files.
+  alias lm='la | "$PAGER"'        # Lists human readable sizes, hidden files through pager.
+  alias lx='ll --sort=extension'  # Lists sorted by extension
+  alias lk='ll --sort=size'       # Lists sorted by size
+  alias lt='ll --sort=modified'   # Lists sorted by date modified
+  alias lc='ll -U --sort=created' # Lists sorted by date created
+  alias lt='ll --sort=type'       # Lists sorted by type
+  alias lg='exa --tree --level=2' # graph up to depth 2
+  alias lG='exa --tree'           # full graph
+  alias sl='exa'                  # I often screw this up.
+else
+  alias l='ls -1A'         # Lists in one column, hidden files.
+  alias ll='ls -lh'        # Lists human readable sizes.
+  alias lr='ll -R'         # Lists human readable sizes, recursively.
+  alias la='ll -A'         # Lists human readable sizes, hidden files.
+  alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager.
+  alias lx='ll -XB'        # Lists sorted by extension (GNU only).
+  alias lk='ll -Sr'        # Lists sorted by size, largest last.
+  alias lt='ll -tr'        # Lists sorted by date, most recent last.
+  alias lc='lt -c'         # Lists sorted by date, most recent last, shows change time.
+  alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
+fi
+
+
 
 # Grep
 if zstyle -t ':prezto:module:utility:grep' color; then
