@@ -33,3 +33,30 @@
 	path = modules/prompt/external/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
 	shallow = true
+[submodule "modules/prompt/external/garrett"]
+	path = modules/prompt/external/garrett
+	url = https://github.com/chauncey-garrett/zsh-prompt-garrett.git
+[submodule "modules/prompt/external/lean"]
+	path = modules/prompt/external/lean
+	url = https://github.com/miekg/lean.git
+[submodule "modules/prompt/external/spaceship"]
+	path = modules/prompt/external/spaceship
+	url = https://github.com/denysdovhan/spaceship-zsh-theme.git
+[submodule "modules/alias-tips/external"]
+	path = modules/alias-tips/external
+	url = https://github.com/djui/alias-tips.git
+[submodule "modules/enhancd/external"]
+	path = modules/enhancd/external
+	url = https://github.com/b4b4r07/enhancd.git
+[submodule "modules/tmux-xpanes/external"]
+	path = modules/tmux-xpanes/external
+	url = https://github.com/greymd/tmux-xpanes.git
+[submodule "modules/fzy/external"]
+	path = modules/fzy/external
+	url = https://github.com/aperezdc/zsh-fzy.git
+[submodule "modules/forgit/external"]
+	path = modules/forgit/external
+	url = https://github.com/wfxr/forgit.git
+[submodule "modules/zsh-nvm/external"]
+	path = modules/zsh-nvm/external
+	url = https://github.com/lukechilds/zsh-nvm.git
