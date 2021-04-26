@@ -195,6 +195,9 @@ else
   alias topm='top -o %MEM'
 fi
 
+alias c='clear'
+alias vtop='vtop --theme wizard'
+
 # Miscellaneous
 
 # Serves a directory via HTTP.

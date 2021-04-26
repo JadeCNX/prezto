@@ -22,3 +22,6 @@ alias cdf='cd "$(pfd)"'
 
 # Pushes directory to the current Finder directory.
 alias pushdf='pushd "$(pfd)"'
+
+alias hidden-show='defaults write com.apple.finder AppleShowAllFiles -bool YES && killall Finder'
+alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool NO && killall Finder'

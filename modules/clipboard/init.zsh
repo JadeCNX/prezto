@@ -56,3 +56,15 @@ zle_put_widgets=(
 for widget in $zle_put_widgets; do
   zle -N $widget putbuffer
 done
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    copy=pbcopy
+    ;;
+  *)
+    # commands others Linux go here
+    # copy=xclip -selection clipboard
+    ;;
+esac
+

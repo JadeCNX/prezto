@@ -58,6 +58,7 @@ Aliases
 
   - `tmuxa` attaches or switches to a tmux session.
   - `tmuxl` lists sessions managed by the tmux server.
+  - `m` restore sessions using resurrect.
 
 Caveats
 -------
