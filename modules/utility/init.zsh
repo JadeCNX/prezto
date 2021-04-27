@@ -201,10 +201,14 @@ else
   alias topm='top -o %MEM'
 fi
 
-alias c='clear'
-alias vtop='vtop --theme wizard'
 
 # Miscellaneous
+
+alias c='clear'
+
+if type "vtop" > /dev/null; then
+  alias vtop='vtop --theme wizard'
+fi
 
 # Serves a directory via HTTP.
 if (( $+commands[python3] )); then
