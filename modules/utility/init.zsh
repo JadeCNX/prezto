@@ -140,7 +140,13 @@ else
   alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
 fi
 
-
+# use neovim instead of vim
+if type "nvim" > /dev/null; then
+  alias vim='nvim'
+  alias vims='nvim -S Session.vim'
+else
+  alias vims='vim -S Session.vim'
+fi
 
 # Grep
 if zstyle -t ':prezto:module:utility:grep' color; then
