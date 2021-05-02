@@ -10,11 +10,8 @@ function prompt_starship_setup {
     )
   fi
 
-  # starship init zsh --print-full-init > starship___init.zsh
   eval "$(starship init zsh)"
 }
 
 prompt_starship_setup "$@"
-
-
 
