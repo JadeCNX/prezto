@@ -103,7 +103,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gfc='git clone'
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull && [ -d $(git rev-parse --show-toplevel)/.git/fat ] && git fat pull'
-  alias gfr='git pull --rebase --autostash'
+  alias gfr='git pull --rebase --autostash && [ -d $(git rev-parse --show-toplevel)/.git/fat ] && git fat pull'
 
   # Flow (F)
   alias gFb='git flow bugfix'
