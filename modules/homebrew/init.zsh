@@ -50,14 +50,6 @@ alias caski='brew install --cask'
 alias caskl='brew list --cask'
 alias casko='brew outdated --cask'
 alias casks='brew search --cask'
+alias casku='brew upgrade --cask'
 alias caskx='brew uninstall --cask'
 
-function hb_deprecated {
-  local cmd="${@[3]}"
-  local cmd_args="${@:4}"
-
-  printf "'brew cask %s' has been deprecated, " "${cmd}"
-  printf "using 'brew %s' instead\n" "${cmd}"
-
-  command brew "${cmd}" "${=cmd_args}"
-}
