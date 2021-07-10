@@ -53,6 +53,3 @@
 [submodule "modules/forgit/external"]
 	path = modules/forgit/external
 	url = https://github.com/wfxr/forgit.git
-[submodule "modules/zsh-nvm/external"]
-	path = modules/zsh-nvm/external
-	url = https://github.com/lukechilds/zsh-nvm.git
