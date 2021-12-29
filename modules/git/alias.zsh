@@ -105,8 +105,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gfa='git fetch --all'
   alias gfc='git clone'
   alias gfcr='git clone --recurse-submodules'
-  alias gfm='git pull && [ -d $(git rev-parse --show-toplevel)/.git/fat ] && git fat pull'
-  alias gfr='git pull --rebase --autostash && [ -d $(git rev-parse --show-toplevel)/.git/fat ] && git fat pull'
+  alias gfm='git pull'
+  alias gfr='git pull --rebase --autostash'
 
   # Flow (F)
   alias gFb='git flow bugfix'
@@ -195,16 +195,19 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
 
   # Log (l)
   alias gl='git log --topo-order --pretty=format:"$_git_log_medium_format"'
-  alias glb='git log --topo-order --pretty=format:"$_git_log_brief_format"'
+  alias glB='git log --topo-order --all --graph --abbrev-commit --branches --pretty=format:"${_git_log_oneline_with_author_format}"'
+  alias glb='git log --topo-order --graph --abbrev-commit --branches --pretty=format:"${_git_log_oneline_with_author_format}"'
   alias glc='git shortlog --summary --numbered'
   alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"$_git_log_medium_format"'
   alias glD='git log --topo-order --stat --patch --word-diff --full-diff --pretty=format:"$_git_log_medium_format"'
-  alias glg='git log --topo-order --graph --pretty=format:"$_git_log_oneline_format"'
   alias glG='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_with_author_format}"'
+  alias glg='git log --topo-order --graph --pretty=format:"${_git_log_oneline_with_author_format}"'
+  alias glM='git log --topo-order --all --graph --author=`git config user.name` --pretty=format:"${_git_log_oneline_format}"'
   alias glm='git log --topo-order --oneline --author=`git config user.name` --pretty=format:"${_git_log_oneline_format}"'
-  alias glM='git log --topo-order --oneline --stat --author=`git config user.name` --pretty=format:"${_git_log_oneline_format}"'
+  alias glms='git log --topo-order --oneline --stat --author=`git config user.name` --pretty=format:"${_git_log_oneline_format}"'
   alias glo='git log --topo-order --pretty=format:"$_git_log_oneline_with_author_format"'
   alias glp='git log --patch'
+  alias glr='git log --topo-order --pretty=format:"$_git_log_brief_format"'
   alias glS='git log --show-signature'
   alias gls='git log --topo-order --stat --pretty=format:"$_git_log_medium_format"'
 
@@ -217,7 +220,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gmt='git mergetool'
 
   # Push (p)
-  alias gp='git push && [ -d $(git rev-parse --show-toplevel)/.git/fat ] && git fat push'
+  alias gp='git push'
   alias gpa='git push --all'
   alias gpA='git push --autostash && git push --tags'
   alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
@@ -225,6 +228,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gpf='git push --force-with-lease'
   alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
   alias gpt='git push --tags'
+  alias gpx='git push --delete origin'
 
   # Rebase (r)
   alias gr='git rebase'
@@ -240,6 +244,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gRl='git remote --verbose'
   alias gRm='git remote rename'
   alias gRp='git remote prune'
+  alias gRP='git remote prune origin'
   alias gRs='git remote show'
   alias gRu='git remote update'
   alias gRx='git remote rm'
@@ -291,4 +296,10 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
   alias gwX='git rm -r --force'
   alias gwx='git rm -r'
+
+  # Work Tree (W)
+  alias gWa='git worktree add'
+  alias gWx='git worktree remove'
+  alias gWX='git worktree remove -f'
+  alias gWl='git worktree list'
 fi
