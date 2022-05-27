@@ -12,9 +12,13 @@
 local_nodenv_paths=({$NODENV_ROOT,{$XDG_CONFIG_HOME/,$HOME/.}nodenv}/bin/nodenv(N))
 local_nvm_paths=({$NVM_DIR,{$XDG_CONFIG_HOME/,$HOME/.}nvm}/nvm.sh(N))
 
+if (( $+commands[fnm] )); then
+
+  eval "$(fnm env --use-on-cd)"
+
 # Load manually installed or package manager installed nodenv into the shell
 # session.
-if (( $#local_nodenv_paths || $+commands[nodenv] )); then
+elif (( $#local_nodenv_paths || $+commands[nodenv] )); then
 
   # Ensure manually installed nodenv is added to path when present.
   [[ -s $local_nodenv_paths[1] ]] && path=($local_nodenv_paths[1]:h $path)
