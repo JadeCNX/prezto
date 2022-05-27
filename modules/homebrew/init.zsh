@@ -37,10 +37,12 @@ fi
 
 # Homebrew
 alias brewc='brew cleanup'
+alias brewI='brew info'
 alias brewi='brew install'
 alias brewL='brew leaves'
 alias brewl='brew list'
 alias brewo='brew outdated'
+alias brewr='brew reinstall'
 alias brews='brew search'
 alias brewu='brew upgrade'
 alias brewx='brew uninstall'
