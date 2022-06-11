@@ -27,5 +27,5 @@ alias pushdf='pushd "$(pfd)"'
 alias hidden-show='defaults write com.apple.finder AppleShowAllFiles -bool YES && killall Finder'
 alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool NO && killall Finder'
 
-alias airport /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
-alias afk 'open -a /System/Library/CoreServices/ScreenSaverEngine.app'
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+alias afk='open -a /System/Library/CoreServices/ScreenSaverEngine.app'
