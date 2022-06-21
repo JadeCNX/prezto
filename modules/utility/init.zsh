@@ -150,7 +150,10 @@ else
 fi
 
 # use neovim instead of vim
-if type "nvim" > /dev/null; then
+if type "lvim" > /dev/null; then
+  alias vim='lvim'
+  alias vims='lvim -S Session.vim'
+elif type "nvim" > /dev/null; then
   alias vim='nvim'
   alias vims='nvim -S Session.vim'
 else
