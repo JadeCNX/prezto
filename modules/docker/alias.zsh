@@ -4,10 +4,17 @@
 # Author:
 #   François Vantomme <akarzim@gmail.com>
 #
+# Load dependencies.
+pmodload 'helper'
 
 #
 # Aliases
 #
+
+if is-darwin; then
+  alias dkU='open -a Docker'
+  alias dkD="pkill -SIGHUP -f /Applications/Docker.app 'docker serve'"
+fi
 
 # Docker
 alias dk='docker'
