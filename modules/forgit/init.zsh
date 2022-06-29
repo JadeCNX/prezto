@@ -1,12 +1,21 @@
 
-forgit_log=gzl
-forgit_diff=gzd
-forgit_add=gza
-forgit_reset_head=gzr
-forgit_ignore=gzi
-forgit_restore=gzc
-forgit_clean=gzx
-forgit_stash_show=gzs
+forgit_log=Gl
+forgit_diff=Gd
+forgit_add=Ga
+forgit_reset_head=Gr
+forgit_ignore=Gi
+forgit_checkout_file=Gcf
+forgit_checkout_branch=Gcb
+forgit_branch_delet=Gbx
+forgit_checkout_tag=Gct
+forgit_checkout_commit=Gco
+forgit_revert_commit=Grc
+forgit_clean=Gclean
+forgit_stash_show=Gss
+forgit_cherry_pick=Gcp
+forgit_rebase=Grb
+forgit_blame=Gbl
+forgit_fixup=Gfu
 
 # Enter	Confirm
 # Tab	Toggle mark
