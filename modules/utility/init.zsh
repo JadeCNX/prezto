@@ -153,11 +153,18 @@ fi
 if type "lvim" > /dev/null; then
   alias vim='lvim'
   alias vims='lvim -S Session.vim'
+  alias vi='lvim -u NONE'
+  export EDITOR='lvim'
+  export VISUAL='lvim'
 elif type "nvim" > /dev/null; then
   alias vim='nvim'
   alias vims='nvim -S Session.vim'
+  alias vi='nvim -u NONE'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
 else
   alias vims='vim -S Session.vim'
+  alias vi='vim -u NONE'
 fi
 
 # Grep
@@ -227,11 +234,7 @@ fi
 # Miscellaneous
 
 alias c='clear'
-alias swagger="docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$HOME/go:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
-
-if type "vtop" > /dev/null; then
-  alias vtop='vtop --theme wizard'
-fi
+alias mkp='mkdir -p'
 
 # Serves a directory via HTTP.
 if (( $#commands[(i)python(|[23])] )); then
@@ -250,7 +253,7 @@ fi
 #
 
 # Makes a directory and changes to it.
-function mkdcd {
+function mkP {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
