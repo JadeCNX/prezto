@@ -55,7 +55,7 @@ function fasd_cd {
 
 alias j='fasd_cd -i'             # Changes the current working directory interactively.
 alias v="fasd -f -e ${EDITOR}"   # quick opening files with vim
-alias t="fasd -f -e \"less +F\"" # quick opening files with vim
+alias t="fasd -f -e \"less +F\"" # quick tailling files with less
 
 if [[ "$OSTYPE" == darwin* ]]; then
   # alias m="fasd -f -e mplayer" # quick opening files with mplayer
