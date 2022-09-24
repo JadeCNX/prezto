@@ -5,7 +5,7 @@
 
 if type "bat" > /dev/null; then
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  export PAGER="bat --style='numbers,changes'"
+  export PAGER="bat --style='changes'"
   alias cat="bat -pp"
 
   help() {

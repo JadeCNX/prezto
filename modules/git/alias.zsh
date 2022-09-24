@@ -42,14 +42,15 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gbl='git branch --verbose'
   alias gbM='git branch --move --force'
   alias gbm='git branch --move'
-  alias gbR='git branch --move --force'
-  alias gbr='git branch --move'
+  alias gbR='git branch --remote --verbose'
+  alias gbr='git branch --remote'
   alias gbS='git show-branch --all'
   alias gbs='git show-branch'
   alias gbV='git branch --verbose --verbose'
   alias gbv='git branch --verbose'
   alias gbX='git branch --delete --force'
   alias gbx='git branch --delete'
+  alias gbP='git-branch-prune'
 
   # Commit (c)
   alias gc='git commit --verbose'
@@ -310,20 +311,23 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gWX='git worktree remove -f'
   alias gWl='git worktree list'
 
-  # github pr command
-  alias ghpC='gh pr comment'
-  alias ghpc='gh pr create'
-  alias ghpd='gh pr diff'
-  alias ghpe='gh pr edit'
-  alias ghpl='gh pr list'
-  alias ghpm='gh pr merge'
-  alias ghpr='gh pr review'
-  alias ghps='gh pr status'
-  alias ghpv='gh pr view'
-  alias ghpx='gh pr close'
+  if type gh > /dev/null; then
+    # github pr command
+    alias ghpb='gh pr create -B'
+    alias ghpC='gh pr comment'
+    alias ghpc='gh pr create'
+    alias ghpd='gh pr diff'
+    alias ghpe='gh pr edit'
+    alias ghpl='gh pr list'
+    alias ghpm='gh pr merge'
+    alias ghpr='gh pr review'
+    alias ghps='gh pr status'
+    alias ghpv='gh pr view'
+    alias ghpx='gh pr close'
 
-  # github secrets command
-  alias ghsl='gh secret list'
-  alias ghss='gh secret set'
-  alias ghsx='gh secret remove'
+    # github secrets command
+    alias ghsl='gh secret list'
+    alias ghss='gh secret set'
+    alias ghsx='gh secret remove'
+  fi
 fi

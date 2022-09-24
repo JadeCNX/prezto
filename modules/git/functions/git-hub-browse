@@ -24,7 +24,7 @@ fi
 
 url=$(
   command git remote get-url "$remote" \
-      | sed -En "s#(git@|https?://)([a-zA-Z\.]+)(:|/)(.+)/(.+)\.git#https://github.com/\4/\5#p"
+      | sed -En "s#(git@|https?://)([0-9a-zA-Z\.]+)(:|/)(.+)/(.+)\.git#https://github.com/\4/\5#p"
 )
 
 reference="${${2:-$(git-branch-current)}:-HEAD}"

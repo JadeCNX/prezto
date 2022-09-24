@@ -167,6 +167,9 @@ else
   alias vi='vim -u NONE'
 fi
 
+alias :x='exit'
+alias :q='exit'
+
 # Grep
 if zstyle -t ':prezto:module:utility:grep' color; then
   export GREP_COLOR=${GREP_COLOR:-'37;45'}            # BSD.
