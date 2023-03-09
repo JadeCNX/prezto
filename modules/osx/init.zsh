@@ -29,3 +29,5 @@ alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool NO &&
 
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 alias afk='open -a /System/Library/CoreServices/ScreenSaverEngine.app'
+
+alias apps="osascript -e 'tell application \"System Events\" to get name of (processes where background only is false)'"
