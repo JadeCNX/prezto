@@ -53,5 +53,10 @@ function dkmd {
   popd
 }
 
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+fpath=(${0:h}/functions $fpath)
+
 # Source module files.
 source "${0:h}/alias.zsh"
