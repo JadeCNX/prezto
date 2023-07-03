@@ -158,7 +158,7 @@ if type "lvim" > /dev/null; then
   export VISUAL='lvim'
 elif type "nvim" > /dev/null; then
   alias vim='nvim'
-  alias vims='nvim -S Session.vim'
+  alias vims='nvim +RestorePersistence'
   alias vi='nvim -u NONE'
   export EDITOR='nvim'
   export VISUAL='nvim'
