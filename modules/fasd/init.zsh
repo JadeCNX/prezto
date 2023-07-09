@@ -53,11 +53,14 @@ function fasd_cd {
 # Aliases
 #
 
-alias j='fasd_cd -i'             # Changes the current working directory interactively.
-alias v="fasd -f -e ${EDITOR}"   # quick opening files with vim
-alias t="fasd -f -e \"less +F\"" # quick tailling files with less
+if ! zstyle -t ':prezto:module:fasd:alias' skip; then
+  # Changes the current working directory interactively.
+  alias j='fasd_cd -i'             # Changes the current working directory interactively.
+  alias v="fasd -f -e ${EDITOR}"   # quick opening files with vim
+  alias t="fasd -f -e \"less +F\"" # quick tailling files with less
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  # alias m="fasd -f -e mplayer" # quick opening files with mplayer
-  alias o="fasd -f -e open"      # quick opening files with open
+  if [[ "$OSTYPE" == darwin* ]]; then
+    # alias m="fasd -f -e mplayer" # quick opening files with mplayer
+    alias o="fasd -f -e open"      # quick opening files with open
+  fi
 fi

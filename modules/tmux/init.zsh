@@ -45,7 +45,8 @@ fi
 # Aliases
 #
 
-alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
-alias tmuxl='tmux list-sessions'
-alias m='{ pgrep -vx tmux > /dev/null && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach } || tmux attach'
-
+if ! zstyle -t ':prezto:module:tmux:alias' skip; then
+  alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
+  alias tmuxl='tmux list-sessions'
+  alias m='{ pgrep -vx tmux > /dev/null && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach } || tmux attach'
+fi
