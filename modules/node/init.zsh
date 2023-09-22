@@ -60,7 +60,7 @@ if ! zstyle -t ':prezto:module:node:alias' skip; then
   alias npmp='npm publish'
   alias npmP='npm prune'
   alias npmr='npm run'
-  alias npms='npm search'
+  alias npms='npm run start'
   alias npmt='npm test'
   alias npmu='npm update'
   alias npmx='npm uninstall'
