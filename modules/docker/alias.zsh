@@ -12,8 +12,13 @@ pmodload 'helper'
 #
 
 if is-darwin; then
-  alias dkU='open -a Docker'
-  alias dkD="pkill -SIGHUP -f /Applications/Docker.app 'docker serve'"
+  if open -Ra "Orbstack" ; then
+    alias dkU='open -a Orbstack'
+    alias dkD="osascript -e 'tell application \"OrbStack\" to quit'"
+  else
+    alias dkU='open -a Docker'
+    alias dkD="pkill -SIGHUP -f /Applications/Docker.app 'docker serve'"
+  fi
 fi
 
 # Docker
