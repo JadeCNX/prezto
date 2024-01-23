@@ -50,3 +50,16 @@ if ! zstyle -t ':prezto:module:tmux:alias' skip; then
   alias tmuxl='tmux list-sessions'
   alias m='{ pgrep -vx tmux > /dev/null && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach } || tmux attach'
 fi
+
+
+#
+# t-smart-tmux-session-manager
+#
+
+if [[ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin ]]; then
+  export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+fi
+
+if [[ -d $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin ]]; then
+  export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+fi
