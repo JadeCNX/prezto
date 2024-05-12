@@ -4,6 +4,5 @@
 #
 
 if [[ -e $(brew --prefix)/share/zsh-autopair/autopair.zsh ]]; then
-  echo "autopair"
   source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 fi
