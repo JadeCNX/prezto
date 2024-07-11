@@ -1,0 +1,7 @@
+# function git-issued-commit {
+
+nvim +IssuedCommit[SETLINK-$1]
+git show --stat
+
+# }
+

@@ -1,0 +1,6 @@
+# function git-gen-recommit {
+
+nvim +Recommit
+git show --stat
+
+# }

@@ -1,0 +1,8 @@
+# function git-issued-recommit {
+
+nvim +IssuedRecommit[SETLINK-$1]
+git show --stat
+
+# }
+
+

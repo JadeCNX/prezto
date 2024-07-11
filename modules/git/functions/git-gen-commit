@@ -1,0 +1,6 @@
+# function git-gen-commit {
+
+nvim +Commit
+git show --stat
+
+# }
