@@ -1,6 +1,10 @@
 # function git-gen-commit {
 
-nvim +Commit
-git show --stat
+if git diff --cached --quiet; then
+    echo 'No staged changes'
+else
+    nvim +Commit
+    git show --stat
+fi
 
 # }
