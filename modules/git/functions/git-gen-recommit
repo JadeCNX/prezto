@@ -1,11 +1,11 @@
 # function git-gen-recommit {
 
 if [[ -z "$1" ]]; then
-  nvim +IssuedRecommit[SETLINK-$1]
+  nvim +Recommit
   git show --stat
 
 else
-  nvim +Recommit
+  nvim +IssuedRecommit[SETLINK-$1]
   git show --stat
 fi
 

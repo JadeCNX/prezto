@@ -4,7 +4,7 @@ if [[ -z "$1" ]]; then
   if git diff --cached --quiet; then
     echo 'No staged changes'
   else
-    nvim +IssuedCommit[SETLINK-$1]
+    nvim +Commit
     git show --stat
   fi
 
@@ -12,7 +12,7 @@ else
   if git diff --cached --quiet; then
     echo 'No staged changes'
   else
-    nvim +Commit
+    nvim +IssuedCommit[SETLINK-$1]
     git show --stat
   fi
 fi
