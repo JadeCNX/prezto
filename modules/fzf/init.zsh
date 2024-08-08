@@ -2,10 +2,6 @@
 # FZF
 #
 
-source <(fzf --zsh)
-
-[ -f ~/.fzf_git.zsh ] && source ~/.fzf_git.zsh
-
 # Use ;; as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER=';;'
 
