@@ -48,3 +48,5 @@ printf 'info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61af
 export FZF_DEFAULT_OPTS="--bind '$(fzf-binds)' --color '$(fzf-color)'"
 
 source <(fzf --zsh)
+[ -f ~/.fzf_git.zsh ] && source ~/.fzf_git.zsh
+
