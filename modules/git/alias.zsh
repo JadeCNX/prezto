@@ -219,6 +219,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias glr='git log --topo-order --pretty=format:"$_git_log_brief_format"'
   alias glS='git log --show-signature'
   alias gls='git log --topo-order --stat --pretty=format:"$_git_log_medium_format"'
+  alias glf='git log --reflog --topo-order --graph --pretty=format:"${_git_log_oneline_with_author_format}"'
+  alias glF='git log --reflog --all --topo-order --graph --pretty=format:"${_git_log_oneline_with_author_format}"'
 
   # Merge (m)
   alias gm='git merge'
