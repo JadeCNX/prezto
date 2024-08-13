@@ -113,9 +113,9 @@ else
   fi
 fi
 
-if type exa > /dev/null; then
-  alias l='exa -1a'                # Lists in one column, hidden files.
-  alias ll='exa -lbhHgm'           # long list
+if type eza > /dev/null; then
+  alias l='eza -1a --icons'                # Lists in one column, hidden files.
+  alias ll='eza -lbhHgm --icons'           # long list
   alias lr='ll -R'                 # Lists human readable sizes, recursively.
   alias la='ll -a'                 # Lists human readable sizes, hidden files.
   alias lm='la | "$PAGER"'         # Lists human readable sizes, hidden files through pager.
@@ -124,13 +124,13 @@ if type exa > /dev/null; then
   alias lt='ll --sort=modified'    # Lists sorted by date modified
   alias lc='ll -U --sort=created'  # Lists sorted by date created
   alias lt='ll --sort=type'        # Lists sorted by type
-  alias lg='exa --tree --level=2'  # graph up to depth 2
+  alias lg='eza --tree --level=2 --icons'  # graph up to depth 2
   alias llg='ll --tree --level=2'  # full graph
   alias llga='la --tree --level=2' # full graph
-  alias lG='exa --tree'            # full graph
+  alias lG='eza --tree --icons'            # full graph
   alias llG='ll --tree'            # full graph
   alias llGa='la --tree'           # full graph
-  alias sl='exa'                   # I often screw this up.
+  alias sl='eza --icons'                   # I often screw this up.
 else
   alias l='ls -1A'         # Lists in one column, hidden files.
   alias la='ll -A'         # Lists human readable sizes, hidden files.
