@@ -1,20 +1,16 @@
 # function git-gen-commit {
 
-if [[ -z "$1" ]]; then
-  if git diff --cached --quiet; then
-    echo 'No staged changes'
-  else
-    nvim +Commit
-    git show --stat
-  fi
+if git diff --cached --quiet; then
+  echo 'No staged changes'
+  return
+fi
 
+if [[ -z "$1" ]]; then
+  nvim +Commit
+  git show --stat
 else
-  if git diff --cached --quiet; then
-    echo 'No staged changes'
-  else
-    nvim +IssuedCommit[SETLINK-$1]
-    git show --stat
-  fi
+  nvim +IssuedCommit[SETLINK-$1]
+  git show --stat
 fi
 
 # }
