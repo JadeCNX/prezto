@@ -12,10 +12,10 @@ pmodload 'helper'
 #
 
 if is-darwin; then
-  if open -Ra "Orbstack" ; then
-    alias dkU='open -a Orbstack'
-    alias dkD="osascript -e 'tell application \"OrbStack\" to quit'"
-  elif command -v colima >/dev/null 2>&1; then
+  # if open -Ra "Orbstack" ; then
+  #   alias dkU='open -a Orbstack'
+  #   alias dkD="osascript -e 'tell application \"OrbStack\" to quit'"
+  if command -v colima >/dev/null 2>&1; then
     alias dkU='colima start'
     alias dkD='colima stop'
   else
