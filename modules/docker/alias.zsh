@@ -12,12 +12,17 @@ pmodload 'helper'
 #
 
 if is-darwin; then
-  # if open -Ra "Orbstack" ; then
-  #   alias dkU='open -a Orbstack'
-  #   alias dkD="osascript -e 'tell application \"OrbStack\" to quit'"
   if command -v colima >/dev/null 2>&1; then
     alias dkU='colima start'
     alias dkD='colima stop'
+  elif command -v podman >/dev/null 2>&1; then
+    alias dkU='podman machine start'
+    alias dkD='podman machine stop'
+    alias docker=podman
+    alias docker-compose=podman-compose
+  elif open -Ra "Orbstack" >/dev/null 2>&1; then
+    alias dkU='open -a Orbstack'
+    alias dkD="osascript -e 'tell application \"OrbStack\" to quit'"
   else
     alias dkU='open -a Docker'
     alias dkD="pkill -SIGHUP -f /Applications/Docker.app 'docker serve'"
@@ -167,27 +172,27 @@ alias dkmv='docker-machine version'
 alias dkmx='docker-machine stop'
 
 # Docker Compose (c)
-alias dkc='docker compose'
-alias dkcb='docker compose build'
-alias dkcB='docker compose build --no-cache'
-alias dkcd='docker compose down'
-alias dkce='docker compose exec'
-alias dkck='docker compose kill'
-alias dkcl='docker compose logs'
-alias dkcls='docker compose ps'
-alias dkcp='docker compose pause'
-alias dkcP='docker compose unpause'
-alias dkcpl='docker compose pull'
-alias dkcph='docker compose push'
-alias dkcps='docker compose ps'
-alias dkcr='docker compose run'
-alias dkcR='docker compose run --rm'
-alias dkcrm='docker compose rm'
-alias dkcs='docker compose start'
-alias dkcsc='docker compose scale'
-alias dkcS='docker compose restart'
-alias dkcu='docker compose up'
-alias dkcU='docker compose up -d'
-alias dkcv='docker compose version'
-alias dkcx='docker compose stop'
-alias dkct='docker compose logs -f --tail 10'
+alias dkc='docker-compose'
+alias dkcb='docker-compose build'
+alias dkcB='docker-compose build --no-cache'
+alias dkcd='docker-compose down'
+alias dkce='docker-compose exec'
+alias dkck='docker-compose kill'
+alias dkcl='docker-compose logs'
+alias dkcls='docker-compose ps'
+alias dkcp='docker-compose pause'
+alias dkcP='docker-compose unpause'
+alias dkcpl='docker-compose pull'
+alias dkcph='docker-compose push'
+alias dkcps='docker-compose ps'
+alias dkcr='docker-compose run'
+alias dkcR='docker-compose run --rm'
+alias dkcrm='docker-compose rm'
+alias dkcs='docker-compose start'
+alias dkcsc='docker-compose scale'
+alias dkcS='docker-compose restart'
+alias dkcu='docker-compose up'
+alias dkcU='docker-compose up -d'
+alias dkcv='docker-compose version'
+alias dkcx='docker-compose stop'
+alias dkct='docker-compose logs -f --tail 10'
