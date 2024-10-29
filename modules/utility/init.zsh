@@ -166,6 +166,7 @@ else
   alias vims='vim -S Session.vim'
   alias vi='vim -u NONE'
 fi
+alias nv='neovide'
 
 alias :x='exit'
 alias :q='exit'
