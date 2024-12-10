@@ -66,6 +66,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gcm='git commit --message'
   alias gcmg='git-gen-commit'
   alias gcmG='git-gen-recommit'
+  alias gcmi='git-gen-commit --github'
+  alias gcmI='git-gen-recommit --github'
   alias gcmS='git commit --message --gpg-sign'
   alias gcO='git checkout --patch'
   alias gco='git checkout'

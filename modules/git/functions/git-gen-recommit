@@ -2,11 +2,12 @@
 
 if [[ -z "$1" ]]; then
   nvim +Recommit
-  git show --stat
-
+elif [[ "$1" == "--github" ]]; then
+  nvim +IssuedCommit#$2
 else
   nvim +IssuedRecommit[SETLINK-$1]
-  git show --stat
 fi
+
+git show --stat
 
 # }

@@ -7,10 +7,12 @@ fi
 
 if [[ -z "$1" ]]; then
   nvim +Commit
-  git show --stat
+elif [[ "$1" == "--github" ]]; then
+  nvim +IssuedCommit#$2
 else
   nvim +IssuedCommit[SETLINK-$1]
-  git show --stat
 fi
+
+git show --stat
 
 # }
