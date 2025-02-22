@@ -55,7 +55,8 @@ function fasd_cd {
 
 if ! zstyle -t ':prezto:module:fasd:alias' skip; then
   # Changes the current working directory interactively.
-  alias j='fasd_cd -i'             # Changes the current working directory interactively.
+  alias j='fasd_cd'                # Changes the current working directory.
+  alias z='fasd_cd -i'             # Changes the current working directory interactively.
   alias v="fasd -f -e ${EDITOR}"   # quick opening files with vim
   alias t="fasd -f -e \"less +F\"" # quick tailling files with less
 
