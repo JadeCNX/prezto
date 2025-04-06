@@ -1,0 +1,22 @@
+# function git-branch-prune {
+
+# Get the current Git branch name
+original=$(git rev-parse --abbrev-ref HEAD)
+
+# Replace hyphens with spaces
+modified=$(echo "$original" | tr '-' ' ')
+
+# Extract the first two words
+first_word=$(echo "$modified" | cut -d' ' -f1)
+second_word=$(echo "$modified" | cut -d' ' -f2)
+
+# Extract the rest of the string
+rest_of_string=$(echo "$modified" | cut -d' ' -f3-)
+
+# Enclose the first two words with square brackets and concatenate with the rest
+result="[$first_word-$second_word] $rest_of_string"
+
+# Output the result
+echo "$result"
+
+#}

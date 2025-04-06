@@ -240,7 +240,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
   alias gpF='git push --force'
   alias gpf='git push --force-with-lease'
-  alias gpm='git push -o merge_request.create -o merge_request.target=promote -o merge_request.draft'
+  alias gpm='git push -o merge_request.create -o merge_request.target=promote -o merge_request.draft -o merge_request.title="$(git-branch-title)"'
   alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
   alias gpt='git push --tags'
   alias gpx='git push --delete origin'
