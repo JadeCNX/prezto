@@ -5,12 +5,42 @@ if git diff --cached --quiet; then
   return
 fi
 
-if [[ -z "$1" ]]; then
+if [[ $# -eq 0 ]]; then
   nvim +Commit
-elif [[ "$1" == "--github" ]]; then
-  nvim +IssuedCommit#$2
 else
-  nvim +IssuedCommit[SETLINK-$1]
+  is_github=0
+  code=""
+  flag=""
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+    --github)
+      is_github=1
+      ;;
+    --wip)
+      flag="🚧"
+      ;;
+    --done)
+      flag="✅"
+      ;;
+    *)
+      code="$1"
+      ;;
+    esac
+    shift
+  done
+
+  if [[ -z "$code" ]]; then
+    echo "Error: No code provided."
+    return 1
+  fi
+
+  if [[ $is_github -eq 1 ]]; then
+    key="#$code"
+  else
+    key="SETLINK-$code"
+  fi
+
+  nvim +"IssuedCommit $flag$key"
 fi
 
 git show --stat
