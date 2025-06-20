@@ -1,5 +1,11 @@
 # function git-branch-prune {
 
-git branch --merged >! /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+main_branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@')
+[ -z "$main_branch" ] && main_branch=master
+git stash -u
+git checkout "$main_branch"
+git branch --merged >! /tmp/merged-branches
+vim /tmp/merged-branches
+xargs git branch -d </tmp/merged-branches
 
 # }
