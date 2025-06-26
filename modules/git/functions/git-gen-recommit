@@ -1,7 +1,7 @@
 # function git-gen-recommit {
 
 if [[ $# -eq 0 ]]; then
-  nvim +Recommit
+  nvim --headless +Recommit
 else
   is_github=0
   code=""
@@ -35,7 +35,7 @@ else
     key="SETLINK-$code"
   fi
 
-  nvim +"IssuedRecommit $flag$key"
+  nvim --headless +"IssuedRecommit $flag$key"
 fi
 
 git show --stat
