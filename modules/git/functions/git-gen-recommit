@@ -4,12 +4,16 @@ if [[ $# -eq 0 ]]; then
   nvim --headless +Recommit
 else
   is_github=0
-  code=""
+  is_setlink=0
+  key=""
   flag=""
   while [[ $# -gt 0 ]]; do
     case "$1" in
     --github)
       is_github=1
+      ;;
+    --setlink)
+      is_setlink=1
       ;;
     --wip)
       flag="🚧"
@@ -18,21 +22,23 @@ else
       flag="✅"
       ;;
     *)
-      code="$1"
+      key="$1"
       ;;
     esac
     shift
   done
 
-  if [[ -z "$code" ]]; then
-    echo "Error: No code provided."
+  if [[ -z "$key" ]]; then
+    echo "Error: No key provided."
     return 1
   fi
 
   if [[ $is_github -eq 1 ]]; then
-    key="#$code"
-  else
-    key="SETLINK-$code"
+    key="#$key"
+  fi
+
+  if [[ $is_setlink -eq 1 ]]; then
+    key="SETLINK-$key"
   fi
 
   nvim --headless +"IssuedRecommit $flag$key"
