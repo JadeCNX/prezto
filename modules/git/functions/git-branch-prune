@@ -15,7 +15,7 @@ if [ "$remote_mode" -eq 1 ]; then
   $EDITOR /tmp/merged-branches
   if [ ! -s /tmp/merged-branches ]; then
     echo "No branches to delete."
-    exit 0
+    return
   fi
   echo "About to delete the following remote branches:"
   cat /tmp/merged-branches
@@ -31,7 +31,7 @@ else
   $EDITOR /tmp/merged-branches
   if [ ! -s /tmp/merged-branches ]; then
     echo "No branches to delete."
-    exit 0
+    return
   fi
   echo "About to delete the following local branches:"
   cat /tmp/merged-branches
