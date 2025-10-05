@@ -13,10 +13,11 @@ if [[ -s /etc/zsh_command_not_found ]]; then
 elif [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
   source /usr/share/doc/pkgfile/command-not-found.zsh
 # Load command-not-found on macOS when Homebrew tap is configured.
-elif (( $+commands[brew] )) \
-      && [[ -s ${hb_cnf_handler::="${HOMEBREW_REPOSITORY:-$commands[brew]:A:h:h}/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"} ]]; then
-  source "$hb_cnf_handler"
-  unset hb_cnf_handler
+elif (( $+commands[brew] )) ; then
+  HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+  if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+    source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
+  fi
 # Return if requirements are not found.
 else
   return 1
