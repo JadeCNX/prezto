@@ -1,11 +1,47 @@
 # function git-branch-prune {
 
-main_branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@')
-[ -z "$main_branch" ] && main_branch=master
-git stash -u
-git checkout "$main_branch"
-git branch --merged >! /tmp/merged-branches
-vim /tmp/merged-branches
-xargs git branch -d </tmp/merged-branches
+remote_mode=0
+if [ "$1" = "-r" ]; then
+  remote_mode=1
+  shift
+fi
+branch="${1:-}"
+if [ -z "$branch" ]; then
+  branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@')
+  [ -z "$branch" ] && branch=master
+fi
+if [ "$remote_mode" -eq 1 ]; then
+  git branch -r --merged "origin/$branch" | grep -vE ' -> ' | sed 's/^ *origin\///' >! /tmp/merged-branches
+  $EDITOR /tmp/merged-branches
+  if [ ! -s /tmp/merged-branches ]; then
+    echo "No branches to delete."
+    exit 0
+  fi
+  echo "About to delete the following remote branches:"
+  cat /tmp/merged-branches
+  echo "Are you sure? [y/N] "
+  read confirm
+  if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+    xargs git push --delete origin </tmp/merged-branches
+  else
+    echo "Aborted. No branches were deleted."
+  fi
+else
+  git branch --merged "$branch" >! /tmp/merged-branches
+  $EDITOR /tmp/merged-branches
+  if [ ! -s /tmp/merged-branches ]; then
+    echo "No branches to delete."
+    exit 0
+  fi
+  echo "About to delete the following local branches:"
+  cat /tmp/merged-branches
+  echo "Are you sure? [y/N] "
+  read confirm
+  if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+    xargs git branch -d </tmp/merged-branches
+  else
+    echo "Aborted. No branches were deleted."
+  fi
+fi
 
 # }
