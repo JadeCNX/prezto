@@ -3,6 +3,8 @@
 # https://github.com/hlissner/zsh-autopair
 #
 
-if [[ -e $(brew --prefix)/share/zsh-autopair/autopair.zsh ]]; then
-  source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+if (( $+commands[brew] )); then
+  if [[ -e $(brew --prefix)/share/zsh-autopair/autopair.zsh ]]; then
+    source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+  fi
 fi
