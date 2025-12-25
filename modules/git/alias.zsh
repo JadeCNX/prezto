@@ -52,6 +52,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gbX='git branch --delete --force'
   alias gbx='git branch --delete'
   alias gbP='git-branch-prune'
+  alias gbo="git for-each-ref --format='%(committerdate)%09%(authorname)%09%(refname)' --sort=authorname"
 
   # Commit (c)
   alias gc='git commit --verbose'
